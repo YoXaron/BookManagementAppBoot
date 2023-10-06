@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit person</title>
+</head>
+<body>
+<h2>Edit person</h2>
+<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+    <label for="fullName">Enter full name: </label>
+    <input type="text" th:field="*{fullName}" id="fullName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Error fullName</div>
+    <br>
+    <label for="birthYear">Enter year of birth: </label>
+    <input type="text" th:field="*{birthYear}" id="birthYear"/>
+    <div style="color:red" th:if="${#fields.hasErrors('birthYear')}" th:errors="*{birthYear}">Error birthYear</div>
+    <br>
+    <br>
+    <hr/>
+    <input type="submit" value="Update"/>
+</form>
+</body>
+</html>
